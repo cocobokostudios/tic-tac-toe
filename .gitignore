@@ -2,6 +2,9 @@
 bin
 obj
 
+# Tool Directories
+tools/vcpkg
+
 # Prerequisites
 *.d
 
