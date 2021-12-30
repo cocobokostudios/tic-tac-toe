@@ -1,13 +1,20 @@
 CC=gcc
-CFLAGS=-I. -Wall --std=c11
+CFLAGS= -Wall -std=c11
 
 DEP_FILES= tic_tac_toe.h
 
-OBJ_DIR = ../../obj
-OBJ_FILES = main.o tic_tac_toe.o
+GAMELIB_HOME = ../gamelib
+GAMELIB_BIN = $(addprefix $(GAMELIB_HOME),/bin)
+
+OBJ_DIR = obj
+OBJ_FILES = main.o
 OBJS = $(addprefix $(OBJ_DIR)/,$(OBJ_FILES))
 
-TARGET_DIR= ../../bin
+LIB_DIRS = -L$(GAMELIB_BIN)
+LIBS = -ltictactoe
+
+
+TARGET_DIR= bin
 TARGET=$(TARGET_DIR)/game
 
 $(TARGET_DIR):
@@ -16,15 +23,15 @@ $(TARGET_DIR):
 $(OBJ_DIR): 
 	mkdir $(OBJ_DIR)
 
-$(OBJ_DIR)/%.o: %.c $(DEP_FILES) | $(OBJ_DIR)
-	$(CC) -c -o $@ $< $(CFLAGS)
+$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
+	$(CC) -c $^ -o $@  $(CFLAGS) -I $(GAMELIB_HOME)
 
 all: game
 
 game: $(OBJS) | $(TARGET_DIR)
-	$(CC) -o $(TARGET) $^ $(CFLAGS)
+	$(CC) $^ -o $(TARGET) $(CFLAGS) $(LIB_DIRS) $(LIBS)
 
 .PHONY: clean
 
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -rf $(OBJ_DIR) $(TARGET_DIR)
