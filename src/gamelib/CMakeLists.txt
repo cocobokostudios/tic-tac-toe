@@ -1,0 +1,1 @@
+add_library(TicTacToe tic_tac_toe.c)
