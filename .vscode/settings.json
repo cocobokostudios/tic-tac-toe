@@ -1,6 +1,7 @@
 {
     "files.associations": {
-        "tic_tac_toe.h": "c"
+        "tic_tac_toe.h": "c",
+        "terminal_tic_tac_toe.h": "c"
     },
     "cmake.configureSettings": {
         "CMAKE_TOOLCHAIN_FILE": "${workspaceFolder}/tools/vcpkg/scripts/buildsystems/vcpkg.cmake"

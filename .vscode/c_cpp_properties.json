@@ -4,10 +4,10 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/src/gamelib"
+                "${workspaceFolder}/src/**"
             ],
             "defines": [],
-            "compilerPath": "/usr/bin/gcc",
+            "compilerPath": "/usr/bin/gcc", 
             "cppStandard": "c++14",
             "cStandard": "c17",
             "intelliSenseMode": "gcc-x64"
