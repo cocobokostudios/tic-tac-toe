@@ -1,6 +1,7 @@
 # Build Directories
 bin
 obj
+build
 
 # Prerequisites
 *.d
