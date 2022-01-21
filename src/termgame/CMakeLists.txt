@@ -1,5 +1,5 @@
 include_directories (
-    "${PROJECT_SOURCE_DIR}/src/game"
+    "${PROJECT_SOURCE_DIR}/src/termgame"
     "${PROJECT_SOURCE_DIR}/src/gamelib"
     )
 

@@ -1,5 +1,5 @@
 include_directories (
-    "${PROJECT_SOURCE_DIR}/src/game"
+    "${PROJECT_SOURCE_DIR}/src/termgame"
     )
 add_executable(test_terminaltictactoe test_terminal_tic_tac_toe.c)
 add_dependencies(test_terminaltictactoe 

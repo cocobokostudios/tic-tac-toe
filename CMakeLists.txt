@@ -11,5 +11,5 @@ enable_testing()
 
 add_subdirectory(src/gamelib)
 add_subdirectory(test/gamelib)
-add_subdirectory(src/game)
-add_subdirectory(test/game)
+add_subdirectory(src/termgame)
+add_subdirectory(test/termgame)

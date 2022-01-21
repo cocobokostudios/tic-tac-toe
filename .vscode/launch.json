@@ -8,7 +8,7 @@
             "name": "(gdb) TerminalTicTacToe",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/src/game/TerminalTicTacToe",
+            "program": "${workspaceFolder}/build/src/termgame/TerminalTicTacToe",
             "args": [],
             "stopAtEntry": true,
             "cwd": "${fileDirname}",
