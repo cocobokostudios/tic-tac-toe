@@ -10,15 +10,15 @@ static void null_test_success(void **state) {
     (void) state; /* unused */
 }
 
-static void my_first_test(void **state) {
-    int value = get_one();
-    assert_true(1 == 1);
+static void can_initialize_board(void **state) {
+    struct Board* myTestBoard = malloc(sizeof(struct Board));
+    assert_non_null(myTestBoard);
 }
 
 int main(void) {
     const struct CMUnitTest tests[] = {
         cmocka_unit_test(null_test_success),
-        cmocka_unit_test(my_first_test)
+        cmocka_unit_test(can_initialize_board)
     };
     return cmocka_run_group_tests(tests, NULL, NULL);
 }
