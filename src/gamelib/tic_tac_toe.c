@@ -14,6 +14,10 @@ struct Board* board_new(struct Board* b, int row_size, int row_count) {
     }
 }
 
-int get_board_size() {
+int get_one() {
+    return 1;
+}
 
+int get_board_size() {
+    return -1;
 }

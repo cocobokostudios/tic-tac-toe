@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include <stdarg.h>
 #include <stddef.h>
 #include <setjmp.h>
@@ -12,7 +13,12 @@ static void null_test_success(void **state) {
 
 static void can_initialize_board(void **state) {
     struct Board* myTestBoard = malloc(sizeof(struct Board));
-    assert_non_null(myTestBoard);
+    struct Board* myUpdatedBoard = board_new(myTestBoard, 3, 3);
+    
+    assert_non_null(myUpdatedBoard);
+    assert_ptr_equal(myUpdatedBoard, myTestBoard);
+    assert_true(myUpdatedBoard->row_count == 3);
+    assert_true(myUpdatedBoard->row_size == 3);
 }
 
 int main(void) {
