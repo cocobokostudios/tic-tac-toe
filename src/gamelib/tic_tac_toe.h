@@ -1,13 +1,11 @@
 #pragma once
 
-struct Board {
-    char* board;
-    int row_size;
-    int row_count;
-};
+typedef struct board Board;
 
-struct Board* board_new(struct Board* b, int row_size, int row_count);
-int get_board_size();
+Board* board_new(int row_size, int row_count);
+void board_free(Board* b);
+int get_row_count(Board* b);
+int get_row_size(Board* b);
 
 // sample function
 int get_one();

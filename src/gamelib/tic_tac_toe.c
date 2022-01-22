@@ -1,23 +1,33 @@
 #include <stdlib.h>
 #include "tic_tac_toe.h"
 
-struct Board* board_new(struct Board* b, int row_size, int row_count) {
-    b->board = malloc(sizeof(char) * (row_size * row_count));
-    b->row_size = row_size;
-    b->row_count = row_count;
+struct board {
+    char* boardArr;
+    int row_size;
+    int row_count;
+};
+
+Board* board_new(int row_size, int row_count) {
+    Board b;
+    b.boardArr = malloc(sizeof(char) * (row_size * row_count));
     
-    if(!b->board) {
-        return NULL;
+    if(b.boardArr) {
+        b.row_size = row_size;
+        b.row_count = row_count;
     }
-    else {
-        return b;
-    }
+
+    return &b;
 }
 
-int get_one() {
-    return 1;
+void board_free(Board* b) {
+    free(b->boardArr);
+    b = NULL;
 }
 
-int get_board_size() {
-    return -1;
+int get_row_count(Board* b) {
+    return b->row_count;
+}
+
+int get_row_size(Board* b) {
+    return b->row_size;
 }
