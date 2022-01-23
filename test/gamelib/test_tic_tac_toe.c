@@ -21,22 +21,21 @@ static void can_set_row_size_and_row_count_on_init(void **state) {
     assert_int_equal(get_row_count(myTestBoard), 3);
 }
 
-static void set_board_pointe_to_null_after_free(void **state) {
+static void can_free_board(void **state) {
     // given an initialized board
     Board* myTestBoard = board_new(3, 3);
     assert_non_null(myTestBoard);
 
-    // when it is freed
+    // when we free() it
     board_free(myTestBoard);
 
-    // then the pointer is NULL
-    assert_null(myTestBoard);
+    // that's it-- we don't want errors and we want the function to exist so if it executes then it means it passed
 }
 
 int main(void) {
     const struct CMUnitTest tests[] = {
         cmocka_unit_test(can_initialize_board),
-        cmocka_unit_test(set_board_pointe_to_null_after_free),
+        cmocka_unit_test(can_free_board),
         cmocka_unit_test(can_set_row_size_and_row_count_on_init)
     };
     return cmocka_run_group_tests(tests, NULL, NULL);
