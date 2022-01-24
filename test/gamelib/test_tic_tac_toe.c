@@ -20,7 +20,7 @@ static void can_initialize_board_with_existing_board_data(void **state) {
     assert_non_null(myTestBoard);
 
     // when we get the state of the board
-    const char* returnedBoard = board_get_board(myTestBoard);
+    const char* returnedBoard = board_get_grid(myTestBoard);
 
     // then it matches our initial board state
     for(int i = 0; i < 9; i++) {
@@ -39,13 +39,13 @@ static void can_free_board(void **state) {
     // that's it-- we don't want errors and we want the function to exist so if it executes then it means it passed
 }
 
-static void can_get_board(void **state) {
+static void can_get_board_grid(void **state) {
     // given an initialized board
     Board* myTestBoard = board_new(3, 3);
     assert_non_null(myTestBoard);
 
     // when we request the board
-    const char* myTestBoardArray = board_get_board(myTestBoard);
+    const char* myTestBoardArray = board_get_grid(myTestBoard);
 
     // then we have a board
     assert_non_null(myTestBoardArray);
@@ -103,7 +103,7 @@ static void can_get_character_on_a_square(void **state) {
     char char21 = board_get_square(myTestBoard, 2, 1);
 
     // then the character appears on the board
-    const char* board = board_get_board(myTestBoard);
+    const char* board = board_get_grid(myTestBoard);
     assert_true(char00 == board[0]);
     assert_true(char01 == board[1]);
     assert_true(char10 == board[3]);
@@ -117,7 +117,7 @@ int main(void) {
         cmocka_unit_test(can_free_board),
         cmocka_unit_test(can_get_board_row_count),
         cmocka_unit_test(can_get_board_row_size),
-        cmocka_unit_test(can_get_board),
+        cmocka_unit_test(can_get_board_grid),
         cmocka_unit_test(can_get_board_square_count),
         cmocka_unit_test(can_get_character_on_a_square)
         

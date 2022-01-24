@@ -60,7 +60,7 @@ int board_get_row_size(const Board* b) {
     return b->row_size;
 }
 
-const char* board_get_board(const Board* b) {
+const char* board_get_grid(const Board* b) {
     return b->boardArr;
 }
 
